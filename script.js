@@ -11,15 +11,30 @@ document.addEventListener('DOMContentLoaded', () => {
             }, 60);
         });
 
-        // Hover effect for interactive elements (Anchors and Buttons)
+        // Magnetic Gravity Effect for Buttons
+        const magneticElements = document.querySelectorAll('.metallic-gradient, .border-outline-variant\\/30');
+        magneticElements.forEach((el) => {
+            el.classList.add('magnetic');
+            el.addEventListener('mousemove', (e) => {
+                const rect = el.getBoundingClientRect();
+                const x = e.clientX - rect.left - rect.width / 2;
+                const y = e.clientY - rect.top - rect.height / 2;
+                el.style.transform = `translate(${x * 0.25}px, ${y * 0.25}px)`;
+            });
+            el.addEventListener('mouseleave', () => {
+                el.style.transform = `translate(0px, 0px)`;
+            });
+        });
+
+        // Hover effect for interactive elements
         const hoverables = document.querySelectorAll('a, button');
         hoverables.forEach(el => {
             el.addEventListener('mouseenter', () => {
-                follower.style.width = '60px';
-                follower.style.height = '60px';
-                follower.style.background = 'rgba(233, 193, 118, 0.1)';
-                follower.style.borderColor = 'transparent';
-                cursor.style.transform = 'translate(-50%, -50%) scale(0.5)';
+                follower.style.width = '70px';
+                follower.style.height = '70px';
+                follower.style.background = 'rgba(233, 193, 118, 0.15)';
+                follower.style.borderColor = 'rgba(233, 193, 118, 0)';
+                cursor.style.transform = 'translate(-50%, -50%) scale(0.3)';
             });
             
             el.addEventListener('mouseleave', () => {
@@ -31,6 +46,38 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     }
+
+    // Initialize Premium Smooth Scroll (Lenis)
+    if(typeof Lenis !== 'undefined') {
+        const lenis = new Lenis({
+            duration: 1.4,
+            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), 
+            direction: 'vertical',
+            gestureDirection: 'vertical',
+            smooth: true,
+            mouseMultiplier: 1,
+            smoothTouch: false,
+        });
+
+        function raf(time) {
+            lenis.raf(time);
+            requestAnimationFrame(raf);
+        }
+        requestAnimationFrame(raf);
+    }
+
+    // Parallax Logic
+    const parallaxImgs = document.querySelectorAll('.parallax-bg, .group > img');
+    window.addEventListener('scroll', () => {
+        let scrollY = window.scrollY;
+        parallaxImgs.forEach(img => {
+            let speed = 0.08;
+            let rect = img.getBoundingClientRect();
+            if(rect.top < window.innerHeight && rect.bottom > 0) {
+               img.style.transform = `translateY(${(rect.top - window.innerHeight/2) * speed}px) scale(1.15)`;
+            }
+        });
+    });
 
     // Scroll reveal
     const observerOptions = {

@@ -36,12 +36,53 @@
 /* Scroll Revealer */
 .fade-in {
     opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    transform: translateY(60px) scale(0.95);
+    transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1), transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: opacity, transform;
 }
 .fade-in.visible {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(0) scale(1);
+}
+
+/* Animations */
+@keyframes orb-float-1 {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(30px, -50px) scale(1.1); }
+}
+@keyframes orb-float-2 {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(-40px, 40px) scale(1.05); }
+}
+@keyframes orb-float-3 {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(50px, 20px) scale(1.2); }
+}
+.orb-float-1 { animation: orb-float-1 12s ease-in-out infinite; }
+.orb-float-2 { animation: orb-float-2 15s ease-in-out infinite; }
+.orb-float-3 { animation: orb-float-3 18s ease-in-out infinite; }
+
+/* Scanlines and VFX */
+.scanline-overlay {
+    background: linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255,0) 50%, rgba(0,0,0,0.1) 50%, rgba(0,0,0,0.1));
+    background-size: 100% 4px;
+    opacity: 0.3;
+    pointer-events: none;
+}
+
+.glass-border-fx {
+    border: 1px solid rgba(255,255,255,0.03);
+    transition: border-color 0.4s ease, box-shadow 0.4s ease;
+}
+.glass-border-fx:hover {
+    border-color: rgba(233, 193, 118, 0.3);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.8), 0 0 20px rgba(233,193,118,0.15) inset !important;
+}
+
+/* Magnetic Items Transition Normalizer */
+.magnetic {
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: transform;
 }
 
 /* Prebuilt Custom Preview Modal Engine */
