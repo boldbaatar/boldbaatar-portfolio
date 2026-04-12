@@ -59,7 +59,36 @@ a {
     top: 0; left: 0; width: 100vw; height: 100vh;
     z-index: -2;
     overflow: hidden;
-    background: radial-gradient(circle at bottom, #111118 0%, #050505 100%);
+    background-color: var(--bg-dark);
+}
+
+.bg-slider {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+}
+
+.bg-slide {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0;
+    transform: scale(1.05);
+    transition: opacity 1.5s ease-in-out, transform 5s ease-out;
+}
+
+.bg-slide.active {
+    opacity: 0.35; /* Keep it subtle behind the text */
+    transform: scale(1);
+}
+
+.bg-overlay-dark {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(10,10,12,0.6) 0%, rgba(10,10,12,1) 100%);
+    z-index: 1;
 }
 
 .glow-orb {
@@ -67,7 +96,8 @@ a {
     width: 40vw; height: 40vw;
     border-radius: 50%;
     filter: blur(100px);
-    opacity: 0.15;
+    opacity: 0.25;
+    z-index: 2;
     animation: float 20s infinite ease-in-out alternate;
 }
 
@@ -86,11 +116,12 @@ a {
     position: absolute;
     inset: 0;
     background-image: 
-        linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+        linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
     background-size: 50px 50px;
     mask-image: radial-gradient(circle at center, black 40%, transparent 80%);
     -webkit-mask-image: radial-gradient(circle at center, black 40%, transparent 80%);
+    z-index: 3;
 }
 
 @keyframes float {

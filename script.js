@@ -62,6 +62,17 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // Background Slider Auto-Change Logic
+    const slides = document.querySelectorAll('.bg-slide');
+    if (slides.length > 0) {
+        let currentSlide = 0;
+        setInterval(() => {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (currentSlide + 1) % slides.length;
+            slides[currentSlide].classList.add('active');
+        }, 5000); // 5 seconds
+    }
+
     // Screenshot Modal Logic
     const modal = document.getElementById('linkModal');
     const modalBg = document.getElementById('modalBg');
