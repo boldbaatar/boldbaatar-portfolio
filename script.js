@@ -62,33 +62,69 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Iframe Modal Intercept Logic (Temporarily Disabled due to X-Frame-Options security)
+    // Screenshot Modal Logic
     const modal = document.getElementById('linkModal');
     const modalBg = document.getElementById('modalBg');
-    const iframe = document.getElementById('modalIframe');
+    const modalImg = document.getElementById('modalImg');
+    const modalExternalLink = document.getElementById('modalExternalLink');
+    const modalTitle = document.getElementById('modalLinkTitle');
+    const modalLoader = document.getElementById('modalLoader');
     const closeBtn = document.getElementById('closeModal');
 
-    /* 
-    if (modal && iframe) {
+    if (modal && modalImg) {
         document.querySelectorAll('a[target="_blank"]').forEach(link => {
             link.addEventListener('click', function(e) {
+                // Ignore mailto links natively
                 if (this.href.startsWith('mailto:')) return;
                 
                 e.preventDefault();
-                iframe.src = this.href;
+                const targetUrl = this.href;
+                
+                // Show modal UI
                 modal.classList.add('active');
                 document.body.style.overflow = 'hidden';
+                
+                // Set Up Loader
+                modalImg.style.display = 'none';
+                modalLoader.style.display = 'block';
+                
+                // Extract clean domain for title
+                try {
+                    const host = new URL(targetUrl).hostname.replace('www.', '');
+                    modalTitle.innerText = "Exploring " + host;
+                } catch(e) {
+                    modalTitle.innerText = "External Link";
+                }
+
+                // API for Screenshot Generation
+                modalImg.src = `https://api.microlink.io/?url=${encodeURIComponent(targetUrl)}&screenshot=true&meta=false&embed=screenshot.url`;
+                
+                // Link button
+                modalExternalLink.href = targetUrl;
             });
+        });
+
+        // When Image finishes loading, hide loader
+        modalImg.addEventListener('load', () => {
+            modalLoader.style.display = 'none';
+            modalImg.style.display = 'block';
+        });
+
+        // Handle Image error natively
+        modalImg.addEventListener('error', () => {
+            modalLoader.innerText = "Preview unavailable. Click below to visit manually.";
         });
 
         const closeModal = () => {
             modal.classList.remove('active');
             document.body.style.overflow = '';
-            setTimeout(() => { iframe.src = ''; }, 400);
+            setTimeout(() => { 
+                modalImg.src = ''; 
+                modalLoader.innerText = "Generating Live Preview...";
+            }, 400);
         };
 
         closeBtn.addEventListener('click', closeModal);
         modalBg.addEventListener('click', closeModal);
     }
-    */
 });

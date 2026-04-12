@@ -204,12 +204,21 @@
         <p>&copy; 2026 Boldbaatar Ganhuyag. Built with innovation.</p>
     </footer>
 
-    <div class="iframe-modal" id="linkModal">
+    <div class="link-modal" id="linkModal">
         <div class="modal-bg" id="modalBg"></div>
         <div class="modal-content glassmorphism">
             <button class="close-btn" id="closeModal">&times;</button>
-            <div class="iframe-loader">Loading content...</div>
-            <iframe id="modalIframe" src="" frameborder="0"></iframe>
+            <div class="modal-loader" id="modalLoader">Generating Live Preview...</div>
+            
+            <div class="modal-body">
+                <div class="preview-img-wrapper">
+                    <img id="modalImg" src="" alt="Live Website Preview">
+                </div>
+                <div class="modal-footer">
+                    <h3 id="modalLinkTitle" class="gradient-text">Website Selected</h3>
+                    <a id="modalExternalLink" href="" target="_blank" class="btn">Visit Live Website &rarr;</a>
+                </div>
+            </div>
         </div>
     </div>
 
