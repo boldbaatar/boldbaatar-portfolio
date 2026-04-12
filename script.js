@@ -1,22 +1,23 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // Custom Cursor tracking
     const cursor = document.querySelector('.cursor');
     const follower = document.querySelector('.cursor-follower');
 
-    if (window.innerWidth > 900) {
+    if (window.innerWidth > 900 && cursor && follower) {
         document.addEventListener('mousemove', (e) => {
             cursor.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
-            
             setTimeout(() => {
                 follower.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
             }, 60);
         });
 
-        const hoverables = document.querySelectorAll('a, .btn, .project-card, .agency-box, .portrait, button');
+        // Hover effect for interactive elements (Anchors and Buttons)
+        const hoverables = document.querySelectorAll('a, button');
         hoverables.forEach(el => {
             el.addEventListener('mouseenter', () => {
-                follower.style.width = '64px';
-                follower.style.height = '64px';
-                follower.style.background = 'rgba(255, 255, 255, 0.05)';
+                follower.style.width = '60px';
+                follower.style.height = '60px';
+                follower.style.background = 'rgba(233, 193, 118, 0.1)';
                 follower.style.borderColor = 'transparent';
                 cursor.style.transform = 'translate(-50%, -50%) scale(0.5)';
             });
@@ -25,23 +26,24 @@ document.addEventListener('DOMContentLoaded', () => {
                 follower.style.width = '36px';
                 follower.style.height = '36px';
                 follower.style.background = 'transparent';
-                follower.style.borderColor = 'rgba(255, 255, 255, 0.3)';
+                follower.style.borderColor = 'rgba(233, 193, 118, 0.4)';
                 cursor.style.transform = 'translate(-50%, -50%) scale(1)';
             });
         });
     }
 
+    // Scroll reveal
     const observerOptions = {
         root: null,
         rootMargin: '0px',
         threshold: 0.15
     };
 
-    const observer = new IntersectionObserver((entries, observer) => {
+    const observer = new IntersectionObserver((entries, obs) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('visible');
-                observer.unobserve(entry.target);
+                obs.unobserve(entry.target);
             }
         });
     }, observerOptions);
@@ -50,28 +52,19 @@ document.addEventListener('DOMContentLoaded', () => {
         observer.observe(element);
     });
 
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    // Smooth Scrolling for in-page anchors
+    document.querySelectorAll('.fade-target').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                target.scrollIntoView({
-                    behavior: 'smooth'
-                });
+            const targetId = this.getAttribute('href');
+            if(targetId && targetId.startsWith('#')) {
+                const target = document.querySelector(targetId);
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
             }
         });
     });
-
-    // Background Slider Auto-Change Logic
-    const slides = document.querySelectorAll('.bg-slide');
-    if (slides.length > 0) {
-        let currentSlide = 0;
-        setInterval(() => {
-            slides[currentSlide].classList.remove('active');
-            currentSlide = (currentSlide + 1) % slides.length;
-            slides[currentSlide].classList.add('active');
-        }, 5000); // 5 seconds
-    }
 
     // Screenshot Modal Logic
     const modal = document.getElementById('linkModal');
@@ -83,45 +76,46 @@ document.addEventListener('DOMContentLoaded', () => {
     const closeBtn = document.getElementById('closeModal');
 
     if (modal && modalImg) {
+        // Intercept target="_blank"
         document.querySelectorAll('a[target="_blank"]').forEach(link => {
             link.addEventListener('click', function(e) {
-                // Ignore mailto links natively
+                // Not for mailto
                 if (this.href.startsWith('mailto:')) return;
                 
+                // Allow modal UI link to bypass its own interception
+                if (this.id === 'modalExternalLink') return;
+
                 e.preventDefault();
                 const targetUrl = this.href;
                 
-                // Show modal UI
+                // Show modal
                 modal.classList.add('active');
                 document.body.style.overflow = 'hidden';
                 
-                // Set Up Loader
+                // Reset State
                 modalImg.style.display = 'none';
                 modalLoader.style.display = 'block';
                 
-                // Extract clean domain for title
+                // Set Title
                 try {
                     const host = new URL(targetUrl).hostname.replace('www.', '');
                     modalTitle.innerText = "Exploring " + host;
-                } catch(e) {
+                } catch(err) {
                     modalTitle.innerText = "External Link";
                 }
 
-                // API for Screenshot Generation
+                // Generative Screenshot
                 modalImg.src = `https://api.microlink.io/?url=${encodeURIComponent(targetUrl)}&screenshot=true&meta=false&embed=screenshot.url`;
                 
-                // Link button
                 modalExternalLink.href = targetUrl;
             });
         });
 
-        // When Image finishes loading, hide loader
         modalImg.addEventListener('load', () => {
             modalLoader.style.display = 'none';
             modalImg.style.display = 'block';
         });
 
-        // Handle Image error natively
         modalImg.addEventListener('error', () => {
             modalLoader.innerText = "Preview unavailable. Click below to visit manually.";
         });
@@ -135,7 +129,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }, 400);
         };
 
-        closeBtn.addEventListener('click', closeModal);
-        modalBg.addEventListener('click', closeModal);
+        if(closeBtn) closeBtn.addEventListener('click', closeModal);
+        if(modalBg) modalBg.addEventListener('click', closeModal);
     }
 });
