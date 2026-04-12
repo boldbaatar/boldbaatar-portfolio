@@ -62,22 +62,22 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Iframe Modal Intercept Logic
+    // Iframe Modal Intercept Logic (Temporarily Disabled due to X-Frame-Options security)
     const modal = document.getElementById('linkModal');
     const modalBg = document.getElementById('modalBg');
     const iframe = document.getElementById('modalIframe');
     const closeBtn = document.getElementById('closeModal');
 
+    /* 
     if (modal && iframe) {
         document.querySelectorAll('a[target="_blank"]').forEach(link => {
             link.addEventListener('click', function(e) {
-                // Ignore mailto links
                 if (this.href.startsWith('mailto:')) return;
                 
                 e.preventDefault();
                 iframe.src = this.href;
                 modal.classList.add('active');
-                document.body.style.overflow = 'hidden'; // Stop background scrolling
+                document.body.style.overflow = 'hidden';
             });
         });
 
@@ -90,4 +90,5 @@ document.addEventListener('DOMContentLoaded', () => {
         closeBtn.addEventListener('click', closeModal);
         modalBg.addEventListener('click', closeModal);
     }
+    */
 });
