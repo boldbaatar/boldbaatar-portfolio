@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }, 60);
         });
 
-        const hoverables = document.querySelectorAll('a, .btn, .project-card, .agency-box, .portrait');
+        const hoverables = document.querySelectorAll('a, .btn, .project-card, .agency-box, .portrait, button');
         hoverables.forEach(el => {
             el.addEventListener('mouseenter', () => {
                 follower.style.width = '64px';
