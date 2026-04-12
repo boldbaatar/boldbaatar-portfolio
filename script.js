@@ -61,4 +61,33 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+
+    // Iframe Modal Intercept Logic
+    const modal = document.getElementById('linkModal');
+    const modalBg = document.getElementById('modalBg');
+    const iframe = document.getElementById('modalIframe');
+    const closeBtn = document.getElementById('closeModal');
+
+    if (modal && iframe) {
+        document.querySelectorAll('a[target="_blank"]').forEach(link => {
+            link.addEventListener('click', function(e) {
+                // Ignore mailto links
+                if (this.href.startsWith('mailto:')) return;
+                
+                e.preventDefault();
+                iframe.src = this.href;
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden'; // Stop background scrolling
+            });
+        });
+
+        const closeModal = () => {
+            modal.classList.remove('active');
+            document.body.style.overflow = '';
+            setTimeout(() => { iframe.src = ''; }, 400);
+        };
+
+        closeBtn.addEventListener('click', closeModal);
+        modalBg.addEventListener('click', closeModal);
+    }
 });
