@@ -1,96 +1,47 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Custom Cursor tracking
     const cursor = document.querySelector('.cursor');
     const follower = document.querySelector('.cursor-follower');
 
-    if (window.innerWidth > 900 && cursor && follower) {
+    if (window.innerWidth > 900) {
         document.addEventListener('mousemove', (e) => {
             cursor.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
+            
             setTimeout(() => {
                 follower.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
             }, 60);
         });
 
-        // Magnetic Gravity Effect for Buttons
-        const magneticElements = document.querySelectorAll('.metallic-gradient, .border-outline-variant\\/30');
-        magneticElements.forEach((el) => {
-            el.classList.add('magnetic');
-            el.addEventListener('mousemove', (e) => {
-                const rect = el.getBoundingClientRect();
-                const x = e.clientX - rect.left - rect.width / 2;
-                const y = e.clientY - rect.top - rect.height / 2;
-                el.style.transform = `translate(${x * 0.25}px, ${y * 0.25}px)`;
-            });
-            el.addEventListener('mouseleave', () => {
-                el.style.transform = `translate(0px, 0px)`;
-            });
-        });
-
-        // Hover effect for interactive elements
-        const hoverables = document.querySelectorAll('a, button');
+        const hoverables = document.querySelectorAll('a, .btn, .project-card, .agency-box, .portrait, button');
         hoverables.forEach(el => {
             el.addEventListener('mouseenter', () => {
-                follower.style.width = '70px';
-                follower.style.height = '70px';
-                follower.style.background = 'rgba(233, 193, 118, 0.15)';
-                follower.style.borderColor = 'rgba(233, 193, 118, 0)';
-                cursor.style.transform = 'translate(-50%, -50%) scale(0.3)';
+                follower.style.width = '64px';
+                follower.style.height = '64px';
+                follower.style.background = 'rgba(255, 255, 255, 0.05)';
+                follower.style.borderColor = 'transparent';
+                cursor.style.transform = 'translate(-50%, -50%) scale(0.5)';
             });
             
             el.addEventListener('mouseleave', () => {
                 follower.style.width = '36px';
                 follower.style.height = '36px';
                 follower.style.background = 'transparent';
-                follower.style.borderColor = 'rgba(233, 193, 118, 0.4)';
+                follower.style.borderColor = 'rgba(255, 255, 255, 0.3)';
                 cursor.style.transform = 'translate(-50%, -50%) scale(1)';
             });
         });
     }
 
-    // Initialize Premium Smooth Scroll (Lenis)
-    if(typeof Lenis !== 'undefined') {
-        const lenis = new Lenis({
-            duration: 1.4,
-            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), 
-            direction: 'vertical',
-            gestureDirection: 'vertical',
-            smooth: true,
-            mouseMultiplier: 1,
-            smoothTouch: false,
-        });
-
-        function raf(time) {
-            lenis.raf(time);
-            requestAnimationFrame(raf);
-        }
-        requestAnimationFrame(raf);
-    }
-
-    // Parallax Logic
-    const parallaxImgs = document.querySelectorAll('.parallax-bg, .group > img');
-    window.addEventListener('scroll', () => {
-        let scrollY = window.scrollY;
-        parallaxImgs.forEach(img => {
-            let speed = 0.08;
-            let rect = img.getBoundingClientRect();
-            if(rect.top < window.innerHeight && rect.bottom > 0) {
-               img.style.transform = `translateY(${(rect.top - window.innerHeight/2) * speed}px) scale(1.15)`;
-            }
-        });
-    });
-
-    // Scroll reveal
     const observerOptions = {
         root: null,
         rootMargin: '0px',
         threshold: 0.15
     };
 
-    const observer = new IntersectionObserver((entries, obs) => {
+    const observer = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('visible');
-                obs.unobserve(entry.target);
+                observer.unobserve(entry.target);
             }
         });
     }, observerOptions);
@@ -99,19 +50,28 @@ document.addEventListener('DOMContentLoaded', () => {
         observer.observe(element);
     });
 
-    // Smooth Scrolling for in-page anchors
-    document.querySelectorAll('.fade-target').forEach(anchor => {
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
-            const targetId = this.getAttribute('href');
-            if(targetId && targetId.startsWith('#')) {
-                const target = document.querySelector(targetId);
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth' });
-                }
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth'
+                });
             }
         });
     });
+
+    // Background Slider Auto-Change Logic
+    const slides = document.querySelectorAll('.bg-slide');
+    if (slides.length > 0) {
+        let currentSlide = 0;
+        setInterval(() => {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (currentSlide + 1) % slides.length;
+            slides[currentSlide].classList.add('active');
+        }, 5000); // 5 seconds
+    }
 
     // Screenshot Modal Logic
     const modal = document.getElementById('linkModal');
@@ -123,46 +83,45 @@ document.addEventListener('DOMContentLoaded', () => {
     const closeBtn = document.getElementById('closeModal');
 
     if (modal && modalImg) {
-        // Intercept target="_blank"
         document.querySelectorAll('a[target="_blank"]').forEach(link => {
             link.addEventListener('click', function(e) {
-                // Not for mailto
+                // Ignore mailto links natively
                 if (this.href.startsWith('mailto:')) return;
                 
-                // Allow modal UI link to bypass its own interception
-                if (this.id === 'modalExternalLink') return;
-
                 e.preventDefault();
                 const targetUrl = this.href;
                 
-                // Show modal
+                // Show modal UI
                 modal.classList.add('active');
                 document.body.style.overflow = 'hidden';
                 
-                // Reset State
+                // Set Up Loader
                 modalImg.style.display = 'none';
                 modalLoader.style.display = 'block';
                 
-                // Set Title
+                // Extract clean domain for title
                 try {
                     const host = new URL(targetUrl).hostname.replace('www.', '');
                     modalTitle.innerText = "Exploring " + host;
-                } catch(err) {
+                } catch(e) {
                     modalTitle.innerText = "External Link";
                 }
 
-                // Generative Screenshot
+                // API for Screenshot Generation
                 modalImg.src = `https://api.microlink.io/?url=${encodeURIComponent(targetUrl)}&screenshot=true&meta=false&embed=screenshot.url`;
                 
+                // Link button
                 modalExternalLink.href = targetUrl;
             });
         });
 
+        // When Image finishes loading, hide loader
         modalImg.addEventListener('load', () => {
             modalLoader.style.display = 'none';
             modalImg.style.display = 'block';
         });
 
+        // Handle Image error natively
         modalImg.addEventListener('error', () => {
             modalLoader.innerText = "Preview unavailable. Click below to visit manually.";
         });
@@ -176,7 +135,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }, 400);
         };
 
-        if(closeBtn) closeBtn.addEventListener('click', closeModal);
-        if(modalBg) modalBg.addEventListener('click', closeModal);
+        closeBtn.addEventListener('click', closeModal);
+        modalBg.addEventListener('click', closeModal);
     }
 });
