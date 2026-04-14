@@ -51,30 +51,17 @@
             color: #d4af37;
             font-size: 0.9rem;
         }
-
-        .brand-logo {
-            height: 48px;
-            width: auto;
-            object-fit: contain;
-        }
-        .footer-logo {
-            height: 64px;
-            width: auto;
-            object-fit: contain;
-            margin: 0 auto 1rem auto;
-        }
     </style>
 </head>
 <body>
 
     <!-- Header -->
     <nav class="fixed w-full z-50 glass-premium border-b border-gray-800">
-        <div class="max-w-7xl mx-auto px-6 h-24 flex justify-between items-center">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center">
             <div class="flex items-center space-x-2">
-                <!-- Using the correct attached logo -->
-                <img src="assets/bod_logo.png" alt="BOD Logo" class="brand-logo" onerror="this.outerHTML='<span class=\'text-2xl font-bold tracking-widest text-white\'>BOD<span style=\'color: #d4af37;\'>.</span></span>'">
+                <span class="text-2xl font-bold tracking-widest text-white">BOD<span style="color: #d4af37;">.</span></span>
             </div>
-            <div class="text-sm tracking-[0.2em] text-gray-400 uppercase font-medium">
+            <div class="text-sm tracking-[0.2em] text-gray-400 uppercase">
                 Proposal / Sunny Moda LLC (BOGI)
             </div>
         </div>
@@ -103,7 +90,7 @@
                     Санни Мода ХХК-ийн санаачлан хэрэгжүүлж буй эмэгтэйчүүдэд зориулсан <strong>"Luxury Multi-Brand"</strong> дэлгүүр (BOGI) нь зөвхөн хувцас, гоёл чимэглэл борлуулах цэг бус, хэрэглэгчдэдээ өндөр зэрэглэлийн амьдралын хэв маяг, үнэ цэнийг мэдрүүлэх орон зай байх учиртай.
                 </p>
                 <p class="text-gray-400 leading-relaxed mb-8">
-                    Бид таны хүсэлтийн дагуу зөвхөн сошиал медиа хөтлөх төдийхнөөр хязгаарлагдахгүй, <strong>Брэндийн нэгдсэн концепц (Positioning), түүх бүтээх (Storytelling) болон Launch стратеги</strong> дээр гүнзгийрүүлэн консалтинг хийж ажиллах саналыг боловсрууллаа.
+                    Бид таны хүсэлтийн дагуу зөвхөн сошиал медиа хөтлөх төдийхнөөр хязгаарлагдахгүй, <strong>Брэндийн нэгдсэн концепц (Positioning), түүх бүтээх (Storytelling) болон Launch стратеги</strong> дээр гүнзгийрүүлэн 컨салтинг хийж ажиллах саналыг боловсрууллаа.
                 </p>
                 
                 <h3 class="text-xl font-semibold mb-4 text-[#d4af37] serif-text">Импортлогдох Албан Ёсны Брэндүүд:</h3>
@@ -209,80 +196,65 @@
             </div>
 
             <div class="space-y-6 max-w-5xl mx-auto">
-                
-                <!-- 1. Strategy FIRST -->
-                <div class="glass-premium p-6 md:p-8 rounded-lg flex flex-col md:flex-row justify-between items-center border border-[#d4af37] shadow-[0_0_20px_rgba(212,175,55,0.15)] relative overflow-hidden">
-                    <!-- Highlight banner -->
-                    <div class="absolute top-0 right-0 bg-[#d4af37] text-black text-[10px] font-bold px-3 py-1 uppercase tracking-widest rounded-bl-lg">Primary Investment</div>
-                    
-                    <div class="mb-6 md:mb-0 md:pr-8 mt-2">
+                <!-- Branding Package -->
+                <div class="glass-premium p-6 md:p-8 rounded-lg flex flex-col md:flex-row justify-between items-center group hover:border-[#d4af37] transition duration-500">
+                    <div class="mb-6 md:mb-0 md:pr-8">
+                        <span class="text-xs font-bold bg-[#111] text-[#d4af37] px-3 py-1 rounded uppercase tracking-wider mb-3 inline-block">Visual Package</span>
+                        <h3 class="text-xl font-bold mb-2 text-white">Дээд Зэрэглэлийн Брэндинг & Visual Identity</h3>
+                        <p class="text-sm text-gray-400">Дэлгүүрийн BOGI лого, хэвлэмэл материал (буцах хуудас, уут, нэрийн хуудас, баглаа боодол), интерьерийн чиглүүлэг болон Brandbook стандартууд.</p>
+                    </div>
+                    <div class="text-right whitespace-nowrap">
+                        <div class="text-2xl font-bold text-white mb-1">33,500,000 ₮ <span class="text-sm text-gray-500 font-normal">-</span> 45,000,000 ₮</div>
+                        <div class="text-xs text-gray-500 uppercase tracking-widest">Pricing bounds</div>
+                    </div>
+                </div>
+
+                <!-- Consulting -->
+                <div class="glass-premium p-6 md:p-8 rounded-lg flex flex-col md:flex-row justify-between items-center group hover:border-[#d4af37] transition duration-500">
+                    <div class="mb-6 md:mb-0 md:pr-8">
                         <span class="text-xs font-bold bg-[#111] text-[#d4af37] px-3 py-1 rounded uppercase tracking-wider mb-3 inline-block">Strategy</span>
                         <h3 class="text-xl font-bold mb-2 text-white">Брэнд Консепт Консалтинг & Launch Strategy</h3>
-                        <p class="text-sm text-gray-400 mb-2">Дэлгүүрийн positioning, storytelling, нээлтийн өмнөх teaser ба strategy, маркетингийн төлөвлөөг хамтран боловсруулж чиглүүлэх.</p>
-                        <p class="text-xs text-[#d4af37] italic inline-flex items-center"><i class="fas fa-gift mr-2"></i> Анх удаагын хамтын ажиллагааны хүрээнд тусгай хямдрал 20% оруулсан үнэ</p>
+                        <p class="text-sm text-gray-400">Дэлгүүрийн positioning, storytelling, нээлтийн өмнөх teaser ба strategy, маркетингийн төлөвлөөг хамтран боловсруулж чиглүүлэх (1-2 сар).</p>
                     </div>
-                    <div class="text-right whitespace-nowrap mt-4 md:mt-0">
-                        <div class="text-3xl font-extrabold text-[#d4af37] mb-1">44,500,000 ₮</div>
+                    <div class="text-right whitespace-nowrap">
+                        <div class="text-2xl font-bold text-white mb-1">24,500,000 ₮</div>
                         <div class="text-xs text-gray-500 uppercase tracking-widest">Base Consulting Fee</div>
                     </div>
                 </div>
 
-                <!-- 2. Branding Package -->
-                <div class="glass-premium p-6 md:p-8 rounded-lg flex flex-col md:flex-row justify-between items-center group transition duration-500 opacity-80 hover:opacity-100">
+                <!-- Marketing Campaign -->
+                <div class="glass-premium p-6 md:p-8 rounded-lg flex flex-col md:flex-row justify-between items-center group hover:border-[#d4af37] transition duration-500">
                     <div class="mb-6 md:mb-0 md:pr-8">
-                        <span class="text-xs font-bold bg-[#111] text-gray-400 px-3 py-1 rounded uppercase tracking-wider mb-3 inline-block">Visual Package</span>
-                        <h3 class="text-xl font-bold mb-2 text-white">Дээд Зэрэглэлийн Брэндинг & Visual Identity</h3>
-                        <p class="text-sm text-gray-500">Дэлгүүрийн BOGI лого, хэвлэмэл материал (буцах хуудас, уут, нэрийн хуудас, баглаа боодол), интерьерийн чиглүүлэг болон Brandbook стандартууд.</p>
-                    </div>
-                    <div class="text-right whitespace-nowrap">
-                        <div class="text-2xl font-bold text-gray-300 mb-1">TBD</div>
-                        <div class="text-xs text-gray-500 uppercase tracking-widest">Тодорхойлох шаардлагатай</div>
-                    </div>
-                </div>
-
-                <!-- 3. Marketing Campaign -->
-                <div class="glass-premium p-6 md:p-8 rounded-lg flex flex-col md:flex-row justify-between items-center group transition duration-500 opacity-80 hover:opacity-100">
-                    <div class="mb-6 md:mb-0 md:pr-8">
-                        <span class="text-xs font-bold bg-[#111] text-gray-400 px-3 py-1 rounded uppercase tracking-wider mb-3 inline-block">Execution</span>
+                        <span class="text-xs font-bold bg-[#111] text-[#d4af37] px-3 py-1 rounded uppercase tracking-wider mb-3 inline-block">Execution</span>
                         <h3 class="text-xl font-bold mb-2 text-white">Нээлтийн Цогц Кампанит Ажил (Full Package)</h3>
-                        <p class="text-sm text-gray-500">Стратегийн дагуу сошиал медиа сурталчилгаа (Видео, Постер, Контент бүтээх), VIP хэрэглэгчдийг татах гүйцэтгэлийн ажил.</p>
+                        <p class="text-sm text-gray-400">Стратегийн дагуу сошиал медиа сурталчилгаа (Видео, Постер, Контент бүтээх), VIP хэрэглэгчдийг татах гүйцэтгэлийн ажил (1-2 сар). <br><span class="text-xs italic text-[#d4af37]">* Маркетингийн мэргэжилтэн, Дизайнер, Фото зурагчин, Сошиал баг ажиллана.</span></p>
                     </div>
                     <div class="text-right whitespace-nowrap">
-                        <div class="text-2xl font-bold text-gray-300 mb-1">TBD</div>
-                        <div class="text-xs text-gray-500 uppercase tracking-widest">Тодорхойлох шаардлагатай</div>
+                        <div class="text-2xl font-bold text-white mb-1">28,000,000 ₮</div>
+                        <div class="text-xs text-gray-500 uppercase tracking-widest">Per Campaign Phase</div>
                     </div>
                 </div>
 
-                <!-- 4. Training -->
-                <div class="glass-premium p-6 md:p-8 rounded-lg flex flex-col md:flex-row justify-between items-center group transition duration-500 opacity-80 hover:opacity-100">
+                <!-- Training -->
+                <div class="glass-premium p-6 md:p-8 rounded-lg flex flex-col md:flex-row justify-between items-center group hover:border-[#d4af37] transition duration-500">
                     <div class="mb-6 md:mb-0 md:pr-8">
-                        <span class="text-xs font-bold bg-[#111] text-gray-400 px-3 py-1 rounded uppercase tracking-wider mb-3 inline-block">Team Excellence</span>
+                        <span class="text-xs font-bold bg-[#111] text-[#d4af37] px-3 py-1 rounded uppercase tracking-wider mb-3 inline-block">Team Excellence</span>
                         <h3 class="text-xl font-bold mb-2 text-white">Борлуулалтын Багийн Luxury Retail Сургалт</h3>
-                        <p class="text-sm text-gray-500">Борлуулалтын ажилтнуудад өндөр зэрэглэлийн харилцааг хэвшүүлэх, 11 брэндийн түүхийг үйлчлүүлэгчдэд зөвөөр түгээх арга барилын практик сургалт.</p>
+                        <p class="text-sm text-gray-400">Борлуулалтын ажилтнуудад өндөр зэрэглэлийн харилцааг хэвшүүлэх, 11 брэндийн түүхийг үйлчлүүлэгчдэд зөвөөр түгээх арга барилын практик сургалт (Цогц багц жишээ: 10-14 цаг).</p>
                     </div>
                     <div class="text-right whitespace-nowrap">
-                        <div class="text-2xl font-bold text-gray-300 mb-1">TBD</div>
-                        <div class="text-xs text-gray-500 uppercase tracking-widest">Тодорхойлох шаардлагатай</div>
+                        <div class="text-2xl font-bold text-white mb-1">29,600,000 ₮</div>
+                        <div class="text-xs text-[#d4af37] uppercase tracking-widest">эсвэл 2,700,000 ₮ / цаг</div>
                     </div>
                 </div>
             </div>
             
-            <div class="max-w-5xl mx-auto mt-12 bg-[#0e0e0e] border border-gray-800 rounded-lg p-8">
-                <h4 class="text-center font-bold text-white mb-6 uppercase tracking-widest text-sm">Төлбөрийн Нөхцөл ба Урамшуулал</h4>
-                
-                <div class="flex flex-wrap justify-center gap-6 mt-4 mb-8 text-sm md:text-lg text-white font-bold tracking-widest uppercase">
-                    <span class="bg-[#1a1a1a] px-5 py-3 rounded-md border-b-2 border-[#d4af37]">Урьдчилгаа: 60%</span>
-                    <span class="bg-[#1a1a1a] px-5 py-3 rounded-md border-b-2 border-[#d4af37]">Явцын: 20%</span>
-                    <span class="bg-[#1a1a1a] px-5 py-3 rounded-md border-b-2 border-[#d4af37]">Үлдэгдэл: 20%</span>
+            <div class="max-w-5xl mx-auto mt-12 border-t border-gray-800 pt-8 text-center text-sm text-gray-500">
+                <p>Дээрх төсөв нь жишиг үнэлгээ бөгөөд талуудын уулзалтаар бодит шаардлагатай ажлын хүрээг нарийвчлан тодорхойлж эцсийн хувилбарыг гаргана. Үнийн дүнд НӨАТ (10%) ороогүй болно.</p>
+                <div class="mt-4 flex justify-center gap-8 text-[#d4af37] font-bold tracking-widest uppercase">
+                    <span>Урьдчилгаа төлбөр: 70%</span>
+                    <span>Үлдэгдэл төлбөр: 30%</span>
                 </div>
-                
-                <div class="bg-gradient-to-r from-transparent via-[rgba(212,175,55,0.1)] to-transparent p-4 rounded text-center">
-                    <p class="text-[#d4af37] font-semibold flex items-center justify-center">
-                        <i class="fas fa-gem mr-2"></i> ЗАХИРЛЫН ХУВЬ ХҮНИЙ ДАНСААР ТӨЛБӨР, ТООЦОО ХИЙВЭЛ НЭМЭЛТ 10% ХЯМДРАЛТАЙ
-                    </p>
-                </div>
-
-                <p class="text-xs text-gray-500 mt-6 text-center italic">Үнийн дүнд НӨАТ (10%) ороогүй. Дээрх TBD үнэлгээнүүд нь хоёр талын уулзалтаар бодит шаардлагатай ажлын хүрээг тодорхойлсны дараа гарна.</p>
             </div>
         </div>
     </section>
@@ -301,10 +273,10 @@
     </section>
 
     <!-- Footer -->
-    <footer class="py-12 bg-black border-t border-gray-900 text-center flex flex-col items-center">
+    <footer class="py-10 bg-black border-t border-gray-900 text-center">
         <div class="max-w-7xl mx-auto px-6">
-            <img src="assets/bod_logo.png" alt="BOD Logo" class="footer-logo" onerror="this.outerHTML='<span class=\'text-3xl font-bold tracking-widest text-white mb-2 block\'>BOD<span style=\'color: #d4af37;\'>.</span></span>'">
-            <p class="text-xs uppercase tracking-[0.2em] text-gray-600 mb-6 font-semibold mt-4">Consulting & Partners / Wild Digital Agency</p>
+            <span class="text-2xl font-bold tracking-widest text-white mb-2 block">BOD<span style="color: #d4af37;">.</span></span>
+            <p class="text-xs uppercase tracking-[0.2em] text-gray-600 mb-6 font-semibold">Consulting & Partners / Wild Digital Agency</p>
             <p class="text-sm text-gray-500">&copy; 2025 Prepared exclusively for Sunny Moda LLC (BOGI).</p>
         </div>
     </footer>
