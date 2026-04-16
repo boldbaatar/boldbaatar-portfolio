@@ -1,7 +1,521 @@
 <!DOCTYPE html>
-<html>
-<head><title>Hidden</title></head>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Quote & Pricing | Boldbaatar Ganhuyag</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Outfit:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .price-text {
+            font-size: 2.2rem;
+            color: var(--accent-1);
+            font-weight: 800;
+            font-family: var(--font-head);
+            margin: 1.5rem 0 0.5rem 0;
+        }
+        .price-meta {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: rgba(255,255,255,0.5);
+            margin-bottom: 2rem;
+            display: inline-block;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding-bottom: 1rem;
+            width: 100%;
+        }
+        .quote-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .quote-list li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.8rem;
+            font-size: 0.95rem;
+            color: rgba(255,255,255,0.8);
+            line-height: 1.6;
+        }
+        .quote-list li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--accent-1);
+            font-size: 1.2rem;
+            line-height: 1;
+            top: 2px;
+        }
+        .quote-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+        .quote-card {
+            display: flex;
+            flex-direction: column;
+            padding: 3rem 2rem;
+        }
+    </style>
+</head>
 <body>
-<!-- Hidden content -->
+<!--
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+
+    <div class="bg-wrapper">
+        <div class="bg-slider">
+            <div class="bg-slide active" style="background-image: url('https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1920&q=80'); filter: grayscale(100%);"></div>
+        </div>
+        <div class="bg-overlay-dark"></div>
+        <div class="glow-orb orb-1"></div>
+        <div class="glow-orb orb-2"></div>
+        <div class="grid-overlay"></div>
+    </div>
+
+    <nav>
+        <div class="logo">BG.</div>
+        <ul class="nav-links">
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="index.html#educator">Болд Багш</a></li>
+            <li><a href="index.html#portfolio">Featured Work</a></li>
+            <li><a href="index.html#agencies">Agencies</a></li>
+            <li><a href="quote.html" style="color: var(--accent-1); font-weight: 700;">Quote</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section id="hero" class="fade-in" style="min-height: 50vh; display: flex; align-items: center; justify-content: center; text-align: center;">
+            <div class="hero-content">
+                <span class="subtitle">AgencyPro / BOD Consulting & Partners</span>
+                <h1 class="title">Цогц Үйлчилгээний <br><span class="gradient-text">Үнийн Санал 2025</span></h1>
+                <p class="desc">Вэбсайт хөгжүүлэлт, брэндинг, маркетинг болон технологийн цогц шийдлүүдийн дэлгэрэнгүй танилцуулга ба цар хүрээ.</p>
+                <p style="color: var(--accent-1); font-size: 1.1rem; font-style: italic; max-width: 800px; margin: 1rem auto 0;">"Empowering our Partners to achieve consistent success by building synergy between Consulting, Branding, Digital Media and Technology"</p>
+            </div>
+        </section>
+
+        <!-- Web Development Section -->
+        <section class="fade-in" style="margin-top: 4rem;">
+            <h2 class="section-title">Вэбсайт <span class="gradient-text">Хөгжүүлэлт</span></h2>
+            <p style="text-align:center; color: rgba(255,255,255,0.6); margin-top:-2rem; margin-bottom: 3rem;">Ерөнхий шаардлага болон багцуудын задаргаа</p>
+            
+            <div class="quote-grid pb-20">
+                <div class="project-card glassmorphism quote-card">
+                    <span class="tag">Responsive company website</span>
+                    <h3 style="font-size: 1.8rem; font-family: var(--font-head); font-weight: 800; margin-top: 1rem;">Танилцуулга Вэбсайт</h3>
+                    <div class="price-text">2,500,000 - 11,500,000 ₮</div>
+                    <div class="price-meta">Хугацаа: 21 хоног | Урьдчилгаа: 60%</div>
+                    
+                    <h4 style="font-weight: 800; margin-bottom: 1rem; color: #fff;">Ажлын цар хүрээ:</h4>
+                    <ul class="quote-list">
+                        <li>Бүх төрлийн компьютер, гар утсанд тохируулан хийгдэх консепт дизайн, технологи. (Mobile, Tablet, Desktop)</li>
+                        <li>SEO, хайлтын системийн оновчлол</li>
+                        <li>Клауд суурьтай модулиуд холбох үнэ төлбөргүй нэмэлт боломж - Mailchimp, CRM Telemarketing, ChatBot</li>
+                    </ul>
+                </div>
+
+                <div class="project-card glassmorphism quote-card pb-20" style="border-top: 3px solid var(--accent-1);">
+                    <span class="tag" style="background: rgba(144, 160, 255, 0.2); color: var(--accent-1);">Үндсэн Ажил 1-р хувилбар</span>
+                    <h3 style="font-size: 1.8rem; font-family: var(--font-head); font-weight: 800; margin-top: 1rem;">Цогц Вэбсайт Хөгжүүлэлт 1</h3>
+                    <div class="price-text">13,000,000 - 28,500,000 ₮</div>
+                    <div class="price-meta">Хугацаа: 45 хоног | Урьдчилгаа: 60%</div>
+                    
+                    <h4 style="font-weight: 800; margin-bottom: 1rem; color: #fff;">Зөвлөх үйлчилгээ ба Дизайн:</h4>
+                    <ul class="quote-list">
+                        <li>Консепт тодорхойлох, Цэсний бүтэц хамтран гаргах, судалгаа хийх.</li>
+                        <li>Тусгай 5 хүртэлх дэд хуудсуудын дизайн гаргах.</li>
+                        <li>UI, UX буюу HTML/CSS3/ Effects харагдац хөгжүүлэлт.</li>
+                        <li>Удирдах админ системийн хөгжүүлэлт болон байршуулалт.</li>
+                    </ul>
+                </div>
+
+                <div class="project-card glassmorphism quote-card">
+                    <span class="tag" style="background: rgba(255, 144, 255, 0.2); color: #ff90ff;">Үндсэн Ажил 2-р хувилбар</span>
+                    <h3 style="font-size: 1.8rem; font-family: var(--font-head); font-weight: 800; margin-top: 1rem;">Цогц Вэбсайт Хөгжүүлэлт 2</h3>
+                    <div class="price-text">38,500,000 ₮</div>
+                    <div class="price-meta">Хугацаа: 60 хоног | Урьдчилгаа: 50%</div>
+                    
+                    <h4 style="font-weight: 800; margin-bottom: 1rem; color: #fff;">Цогц систем гүйцэтгэл:</h4>
+                    <ul class="quote-list">
+                        <li>Дизайныг үндсэн сайтын загварыг ашиглан хийх, функцууд холбох.</li>
+                        <li>Галлери, зураг, видео, бүтээгдэхүүн, news, post, pdf татах дэд хуудсууд.</li>
+                        <li>Удирдах админ системийн хөгжүүлэлт, бэлэн консепт.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Additional Web Info -->
+            <div class="glassmorphism" style="padding: 3rem; margin-top: 2rem; border-radius: 16px;">
+                <h3 style="font-family: var(--font-head); font-size: 1.8rem; margin-bottom: 2rem;">Нэмэлт Мэдээлэл & Баталгаа</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+                    <div>
+                        <h4 style="color: var(--accent-1); margin-bottom: 1rem;">Онлайн Худалдааны Вэбсайт</h4>
+                        <p style="color: rgba(255,255,255,0.7); line-height: 1.6; font-size: 0.95rem;"><strong>35,000,000 - 85,000,000 ₮+</strong><br>Хугацаа: 60-70 хоног | Урьдчилгаа: 50-60%<br>Онлайн Худалдааны модуль ESHOP-той вэб сайт хөгжүүлэх. Төлбөр тооцоо болон CHATBOT автоматжуулалт үүсгэх ажлууд тусдаа үнэлэгдэнэ.</p>
+                    </div>
+                    <div>
+                        <h4 style="color: var(--accent-1); margin-bottom: 1rem;">Нэмэлт Ажлууд / Баталгаа</h4>
+                        <ul class="quote-list" style="font-size: 0.85rem;">
+                            <li>Вэбсайтыг байршуулж аюулгүй байдлыг 365 хоног хангах үнэгүй дагалдана.</li>
+                            <li>Домайн хаяг худалдаж авч холбох (худалдан авах зардал захиалагчийнх).</li>
+                            <li>2-оос дээш вэб сайтыг цогцоор хийлгэвэл 20% хямдралтай.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Branding Section -->
+        <section class="fade-in" style="margin-top: 8rem;">
+            <h2 class="section-title">Брэнд <span class="gradient-text">Хөгжүүлэлт</span></h2>
+            <div class="quote-grid mb-12">
+                <div class="project-card glassmorphism quote-card">
+                    <span class="tag">Concept Guide</span>
+                    <h3 style="font-size: 1.8rem; font-family: var(--font-head); margin-top: 1rem;">Брэнд Консепт Консалтинг</h3>
+                    <div class="price-text">24,500,000 ₮</div>
+                    <div class="price-meta">Хугацаа: 21-28 хоног</div>
+                    <p style="color: rgba(255,255,255,0.8); line-height: 1.6;">Товч танилцуулга, үнэт зүйлс, эрхэм зорилго, стратегит тулгуурлан текст консепт гаргах.</p>
+                </div>
+                
+                <div class="project-card glassmorphism quote-card">
+                    <span class="tag">Logo Development</span>
+                    <h3 style="font-size: 1.8rem; font-family: var(--font-head); margin-top: 1rem;">Лого Хөгжүүлэлт</h3>
+                    <div class="price-text">19,500,000 ₮</div>
+                    <div class="price-meta">Хугацаа: 14-28 хоног</div>
+                    <p style="color: rgba(255,255,255,0.8); line-height: 1.6;">Лого хувилбарууд боловсруулах, үндсэн загвар, өнгө, дизайны стандартуудыг бүрдүүлэх.</p>
+                </div>
+
+                <div class="project-card glassmorphism quote-card" style="box-shadow: 0 0 40px rgba(144, 160, 255, 0.1);">
+                    <span class="tag" style="background: var(--accent-1); color: #000;">Бүрэн Багц</span>
+                    <h3 style="font-size: 1.8rem; font-family: var(--font-head); margin-top: 1rem; color: var(--accent-1);">Брэндинг Багц Үйлчилгээ</h3>
+                    <div class="price-text" style="color: #fff;">33,500,000 - 45,000,000 ₮</div>
+                    <div class="price-meta">Хугацаа: 28-42 хоног</div>
+                    <ul class="quote-list">
+                        <li>Брэнд дүр төрх, бизнес бичиг баримт.</li>
+                        <li>Маркетинг дизайны стандарт, сошиал загварууд.</li>
+                        <li>10 хүртэлх элемент бүхий Визуал багц.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Marketing Section -->
+        <section class="fade-in" style="margin-top: 8rem;">
+            <h2 class="section-title">Маркетинг <span class="gradient-text">& Сурталчилгаа</span></h2>
+            <div class="glassmorphism" style="padding: 4rem; border-radius: 16px;">
+                <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 2rem; margin-bottom: 2rem;">
+                    <div style="max-width: 600px;">
+                        <h3 style="font-size: 2.2rem; font-family: var(--font-head); margin-bottom: 1rem;">Цогц Маркетинг Багц</h3>
+                        <p style="color: rgba(255,255,255,0.7); line-height: 1.6;">Багт мэргэжилтэн, дизайнер, зурагчин, сэтгүүлч орж гэрээний хугацаанд мэргэжлийн түвшинд ажиллана. Судалгаа, контент бэлтгэл, төлөвлөлтийг бүрэн хариуцна.</p>
+                    </div>
+                    <div>
+                        <div class="price-text" style="margin-top: 0;">11 сая - 15 сая ₮ <span style="font-size:0.9rem; font-weight:400; color:rgba(255,255,255,0.5);">/ САРД</span></div>
+                        <div class="price-meta" style="border:none; padding:0; margin:0;">Үйлчилгээний хугацаа: 4 сараас дээш</div>
+                    </div>
+                </div>
+
+                <div class="quote-grid" style="grid-template-columns: repeat(2, 1fr);">
+                    <div>
+                        <h4 style="color: var(--accent-1); margin-bottom: 1rem;">Хүлээлгэн өгөх контентууд (Сар бүр):</h4>
+                        <ul class="quote-list">
+                            <li>4 ш / сард 1ш видео контент</li>
+                            <li>Сошиал постерууд 180 орчим ширхэг</li>
+                            <li>Хэвлэлийн мэдээ, сурталчилгааны зураг авалтууд</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 style="color: var(--accent-1); margin-bottom: 1rem;">Нэгж ажлын үнэлгээ:</h4>
+                        <ul class="quote-list">
+                            <li>Сошиал видео сурталчилгаа: <strong>13.6 - 15.2 сая ₮</strong></li>
+                            <li>Компьютер график шторк (15-30s): <strong>9.3 сая ₮-өөс</strong></li>
+                            <li>Постер эх бэлтгэл (3-5ш): <strong>8.5 сая ₮-өөс</strong></li>
+                            <li>PR бичвэр эх бэлтгэл: <strong>1.95 сая ₮-өөс</strong></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="quote-grid" style="margin-top: 2rem;">
+                <div class="project-card glassmorphism quote-card">
+                    <span class="tag">Chatbot Cloud</span>
+                    <h3 style="font-size: 1.6rem; margin-top: 1rem; margin-bottom: 1rem;">Чатбот холболт</h3>
+                    <div class="price-text">23,400,000 ₮+</div>
+                    <p style="color: rgba(255,255,255,0.7); line-height: 1.6;">Ухаалаг чатбот, масс мессеж, шууд борлуулалт, статистик хугацаагаар ангилах про багцын боломжууд. (ERP тусдаа)</p>
+                </div>
+                <div class="project-card glassmorphism quote-card">
+                    <span class="tag">Training</span>
+                    <h3 style="font-size: 1.6rem; margin-top: 1rem; margin-bottom: 1rem;">Сургалт & Консалтинг</h3>
+                    <p style="color: rgba(255,255,255,0.7); line-height: 1.6;">Борлуулалт, ашиг нэмэгдүүлэх, маркетинг автоматжуулалт сургалтууд. Агуулгын маркетинг (90-365 хоног), Цахим кампанит ажил (60-365 хоног).</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- General Consulting & IT -->
+        <section class="fade-in" style="margin-top: 8rem;">
+            <h2 class="section-title">Консалтинг <span class="gradient-text">& IT Services</span></h2>
+            <div class="quote-grid mb-12">
+                <div class="project-card glassmorphism quote-card">
+                    <h3 style="font-size: 1.8rem; margin-bottom: 1.5rem; color: #fff;">General Consultation</h3>
+                    <ul class="quote-list">
+                        <li><strong>Project Management (PR/Social):</strong> Local relevant strategy.</li>
+                        <li><strong>Media Relations:</strong> Tracking and securing presence.</li>
+                        <li><strong>User Acquisition:</strong> Data analysis and automation tool tracking.</li>
+                        <li><strong>Innovation Programs:</strong> ISO standards, hacks, bootcamps.</li>
+                        <li><strong>Event Service:</strong> Full curation.</li>
+                    </ul>
+                </div>
+                
+                <div class="project-card glassmorphism quote-card">
+                    <h3 style="font-size: 1.8rem; margin-bottom: 1.5rem; color: #fff;">Technology Services</h3>
+                    <ul class="quote-list">
+                        <li><strong>Efficiency:</strong> Content SEO, CRM automation.</li>
+                        <li><strong>Web & Mobile:</strong> API central system interfaces.</li>
+                        <li><strong>Social Apps:</strong> Mining apps and connectors.</li>
+                        <li><strong>Network & Hardware:</strong> Secure maintenance.</li>
+                        <li><strong>Systems Audit & Surveillance:</strong> Automation, analysis.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Training & Curriculum Expansion -->
+        <section class="fade-in" style="margin-top: 8rem;">
+            <h2 class="section-title">Сургалт Консалтинг <span class="gradient-text">& Хөтөлбөрүүд</span></h2>
+            <p style="text-align:center; color: rgba(255,255,255,0.6); margin-top:-2rem; margin-bottom: 3rem;">Нарийвчилсан сэдэв, агуулга болон төсөв үнэлгээ (2025)</p>
+            
+            <div class="glassmorphism" style="padding: 4rem; border-radius: 16px; margin-bottom: 4rem;">
+                <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-start; margin-bottom: 3rem;">
+                    <div>
+                        <h3 style="font-size: 2.2rem; font-family: var(--font-head); font-weight: 800; color: #fff; margin-bottom: 1.5rem;">Сургалтын Төсөв & Үнэлгээ</h3>
+                        <ul class="quote-list" style="max-width: 600px; font-size: 1.05rem;">
+                            <li><strong>Дан танхимын лекц (1-2 цаг, 50 хүртэл хүн):</strong> <span style="color: var(--accent-1); font-weight: 700;">2,900,000 ₮ / 1 цаг</span></li>
+                            <li><strong>Зөвлөх, практик хосолсон (1 цаг, 2 баг):</strong> <span style="color: var(--accent-1); font-weight: 700;">2,700,000 ₮ / 1 цаг</span></li>
+                            <li><strong>1+ өдрийн цогц сургалт (8 цаг+):</strong> <span style="color: var(--accent-1); font-weight: 700;">2,350,000 ₮ / 1 цаг</span></li>
+                            <li style="margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.1);"><strong>Нийт Сургалтын Багц Жишээ (10-14 цаг):</strong> <span style="font-size: 1.8rem; color: #ff90ff; font-weight: 900; margin-left:1rem;">29,600,000 ₮</span></li>
+                        </ul>
+                    </div>
+                    <div style="background: rgba(0,0,0,0.4); padding: 2.5rem; border-radius: 12px; max-width: 450px;">
+                        <h4 style="color: var(--accent-1); font-size: 1.2rem; margin-bottom: 1rem;">Сургалтын Нөхцөл:</h4>
+                        <ul class="quote-list" style="font-size: 0.95rem;">
+                            <li>Сургалт хамгийн багадаа 1-3 хоног байна.</li>
+                            <li>Сургалтын анги танхим, өдрийн хоол, кофе, ус, интернет, проекторыг захиалагч бүрэн хариуцна.</li>
+                            <li>Америкийн Маркетингийн Холбооны (AMA) үнэгүй ба төлбөртэй темплэйтүүд ашиглагдана.</li>
+                            <li>Оролцогчид лаптоптой байх.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <h3 style="font-size: 2rem; font-family: var(--font-head); font-weight: 800; color: #fff; margin-bottom: 2rem; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 1rem;">Брэнд Гэж Юу Вэ? Брэнд Бүтээх Хөтөлбөр</h3>
+                <div class="quote-grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));">
+                    <div style="background: rgba(255,255,255,0.03); padding: 2rem; border-radius: 12px; border-top: 3px solid var(--accent-1);">
+                        <h4 style="color: #fff; font-size: 1.2rem; margin-bottom: 0.8rem;">1. Илтгэл, Ярилцлага (2 цаг)</h4>
+                        <p style="font-size: 0.9rem; color: rgba(255,255,255,0.7); line-height: 1.6;">Үндсэн ойлголтууд болон Монголын, дэлхийн Кэйсүүд.</p>
+                    </div>
+                    <div style="background: rgba(255,255,255,0.03); padding: 2rem; border-radius: 12px; border-top: 3px solid #ff90ff;">
+                        <h4 style="color: #fff; font-size: 1.2rem; margin-bottom: 0.8rem;">2. Бүтээх Аргачлалууд (1 цаг)</h4>
+                        <p style="font-size: 0.9rem; color: rgba(255,255,255,0.7); line-height: 1.6;">Суурь нөхцөл, хандлага. Дэвшилтэт ба уламжлалт маркетингийг хослуулан бага зардлаар өндөр үр дүнд хүрэх стратеги.</p>
+                    </div>
+                    <div style="background: rgba(255,255,255,0.03); padding: 2rem; border-radius: 12px; border-top: 3px solid #bdc2ff;">
+                        <h4 style="color: #fff; font-size: 1.2rem; margin-bottom: 0.8rem;">3. Брэнд Консепт (3-4 цаг)</h4>
+                        <p style="font-size: 0.9rem; color: rgba(255,255,255,0.7); line-height: 1.6;">Брэндийн давуу талыг гаргах. Мессэж, утга санаа (WHY, HOW, WHAT). Дизайн сэтгэлгээгээр консепт гаргах процессууд.</p>
+                    </div>
+                    <div style="background: rgba(255,255,255,0.03); padding: 2rem; border-radius: 12px; border-top: 3px solid var(--accent-1);">
+                        <h4 style="color: #fff; font-size: 1.2rem; margin-bottom: 0.8rem;">4. Брэнд Дизайн (1 цаг/баг)</h4>
+                        <p style="font-size: 0.9rem; color: rgba(255,255,255,0.7); line-height: 1.6;">Хялбар, зардал багатай загвар бүтээх техник, аргачлал. Шаардлага болон дизайны процесс.</p>
+                    </div>
+                    <div style="background: rgba(255,255,255,0.03); padding: 2rem; border-radius: 12px; border-top: 3px solid #ff90ff;">
+                        <h4 style="color: #fff; font-size: 1.2rem; margin-bottom: 0.8rem;">5. Цахим Брэнд хоногшуулалт</h4>
+                        <p style="font-size: 0.9rem; color: rgba(255,255,255,0.7); line-height: 1.6;">Зорилтот бүлэгтээ хямд хүрэх. Брэнд-хэрэглэгчийн үнэ цэнийн холбоог бэхжүүлж, үнэнч хэрэглэгчийг хувиргах.</p>
+                    </div>
+                </div>
+
+                <h3 style="font-size: 2rem; font-family: var(--font-head); font-weight: 800; color: #fff; margin-top: 4rem; margin-bottom: 2rem; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 1rem;">Нэмэлт Сургалтын Агуулгууд</h3>
+                <div class="quote-grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
+                    <div>
+                        <h4 style="color: var(--accent-1); font-size: 1.1rem; margin-bottom: 0.8rem;">Интернет & Сошиал Маркетинг</h4>
+                        <ul class="quote-list" style="font-size: 0.9rem;">
+                            <li>Дэвшилтэт хэрэгслүүдийг бодитоор ашиглах. Цахим дүр төрхөө хоногшуулах стратеги.</li>
+                            <li>Үнэнч хэрэглэгчдэд тулгуурласан зардал багатай борлуулалт буюу Inbound Marketing.</li>
+                            <li>Олон нийтийн сүлжээний (Facebook, Instagram гэх мэт) алгоритм, тактикууд, хандлагыг удирдах.</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 style="color: #bdc2ff; font-size: 1.1rem; margin-bottom: 0.8rem;">Агуулга & Хэрэглэгчийн Технологи</h4>
+                        <ul class="quote-list" style="font-size: 0.9rem;">
+                            <li>Чанартай агуулгыг төлөвлөх, бүтээх, түгээх вайрал (Viral) ба SEO хайлтын борлуулалт.</li>
+                            <li>Шинэ үеийн зан төлөвт нийцэх Dynamic болон User-generated контент, гар утасны (Mobile web) танилцуулга.</li>
+                            <li>Имейл маркетинг болон интерактив хэрэглэгчийн урт хугацааны систем барих.</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 style="color: #ff90ff; font-size: 1.1rem; margin-bottom: 0.8rem;">Мэдлэгийн Удирдлагад IT Ашиглах</h4>
+                        <ul class="quote-list" style="font-size: 0.9rem;">
+                            <li>Ажлын дотоод төлөвлөлт, хамтын ажиллагааны Cloud клауд хэрэгслүүд ашиглах, мэдлэгийг нөөцлөх.</li>
+                            <li>Байгууллагын файлыг системчлэх, архив болон мэдлэгийн сан зохион байгуулах.</li>
+                            <li>Мэдээллийн алдагдлыг зогсоох, зардлыг үнэмлэхүй бууруулах Realtime мэдээллийн технологиуд.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Detailed Appendix Section -->
+        <section class="fade-in" style="margin-bottom: 4rem;">
+            <div class="glassmorphism" style="padding: 4rem; border-radius: 16px;">
+                <h3 style="font-family: var(--font-head); font-size: 2.2rem; margin-bottom: 2rem;">Дэлгэрэнгүй Мэдээлэл & <span class="gradient-text">Задаргаа</span></h3>
+                
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 3rem;">
+
+                    <div>
+                        <h4 style="color: #ff90ff; margin-bottom: 1rem; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 0.5rem;">Visual Package (Брэндбүүк & Лого)</h4>
+                        <ul class="quote-list" style="font-size: 0.9rem;">
+                            <li><strong>01. Logo:</strong> Symbols, text, color, fonts, description, usage, dimensions, variations...</li>
+                            <li><strong>02. Business documents:</strong> Memos, letterhead, envelope, business card, ID card, contract, folders...</li>
+                            <li><strong>03. Documents for clients:</strong> Invitation, brochure, DVD cover, photo standards, signatures...</li>
+                            <li><strong>04. Printing and materials:</strong> Billboard, flags, car 3d/print, exterior/interior signs...</li>
+                            <li><strong>05. Marketing materials:</strong> Magazine layouts, merchandises (cup, cap, pen, flash drive, t-shirt)...</li>
+                            <li><strong>06. Custom items:</strong> Determined by business domain and client requirements.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 style="color: var(--accent-1); margin-bottom: 1rem; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 0.5rem;">Вэб Хөгжүүлэлтийн Үе Шатууд (Milestones)</h4>
+                        <ul class="quote-list" style="font-size: 0.9rem;">
+                            <li><strong>Week 1 (Start & Design):</strong> Contract, Management agreement, Research, Home & Subpage design, Photographic service.</li>
+                            <li><strong>Week 2 (Development):</strong> UI, UX coding, Backend, Function modules.</li>
+                            <li><strong>Week 3-4 (Testing):</strong> Bug fix, Security, Speed, Stability, Polishing.</li>
+                            <li><strong>Week 5 (Review & Deployment):</strong> Polishing, Hosting and Management setup.</li>
+                            <li><strong>Months 12-36+ (Maintenance):</strong> Yearly updates, improvement. Yearly hosting payment 200,000 ₮.</li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h4 style="color: #bdc2ff; margin-bottom: 1rem; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 0.5rem;">Цогц Кампанит Ажлууд (1-2 сар+)</h4>
+                        <ul class="quote-list" style="font-size: 0.9rem;">
+                            <li><strong>1. Content Marketing Package: 19,000,000 ₮</strong> Facebook Ads, Content Schedule/Publishing, Reporting, Engagement strategy.</li>
+                            <li><strong>2. Full Marketing Campaign: 28,000,000 ₮</strong> App design, Social ad posters (27-28), advanced boost in engagement and likes calculation.</li>
+                            <li><strong>Marketing Team:</strong> Маркетингийн мэргэжилтэн, Дизайнер, Фото зурагчин, Сэтгүүлч, Сошиал мэргэжилтэн зэрэг тусгай баг ажиллана.</li>
+                            <li><strong style="color: #ff90ff;">Notes:</strong> Facebook advertisement cost is separate (~$500+ advised). Traditional media/printing not covered. Quotes include 10% project management fee and 30% profit margin (+10% VAT).</li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h4 style="color: var(--accent-1); margin-bottom: 1rem; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 0.5rem;">Нэмэлт Консалтинг Системүүд</h4>
+                        <ul class="quote-list" style="font-size: 0.9rem;">
+                            <li><strong>Удирдлагын Системийн Хэрэгжилт:</strong> 1. Project preparation, 2. Planning & Doc, 3. Implementation, 4. Review, 5. Certification.</li>
+                            <li><strong>Quality & Environment:</strong> Health, Safety and Food safety management systems.</li>
+                            <li><strong>Security:</strong> Information security, Centralized control, and Laboratory quality systems.</li>
+                            <li><strong>ISO Standard Trainings:</strong> Business administration, HR, Health and Safety, PECB trainings.</li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h4 style="color: var(--accent-1); margin-bottom: 1rem; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 0.5rem;">Вэбсайтын Нэмэлт Ажлууд</h4>
+                        <ul class="quote-list" style="font-size: 0.9rem;">
+                            <li><strong>Хүний нөөцийн Модуль:</strong> Хүний нөөцийн формыг хэр комплекс хийхээс хамааран вэб сайт дээр эсвэл тусдаа апп модуль хөгжүүлнэ. Энгийн формоор мэдээлэл авах боломжтой.</li>
+                            <li><strong>Бусад модулиуд:</strong> Банкны төлбөрийн боломжтой апп холболт (нэг холболт ~2.5 сая ₮). Дотоод төслийн менежментийн модулиуд.</li>
+                            <li><strong>Интерактив функц:</strong> Бэлэн функцуудыг линк эсвэл Embed байдлаар оруулна (Web planner, configurator, 3Д аялал зэрэг нь үндсэн үнэд ороогүй).</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 style="color: var(--accent-1); margin-bottom: 1rem; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 0.5rem;">Брэнд & Хямдралын Нөхцөл</h4>
+                        <ul class="quote-list" style="font-size: 0.9rem;">
+                            <li><strong>Хүлээлгэн өгөх:</strong> Дизайны стандарт, элементүүдийг бүрэн агуулсан нэгдсэн брэндбүүк (pdf, хэвлэмэл) болон задгай файлууд. Хүлээлгэн өгсний дараа 14 хоног шаардлагатай засварууд хийгдэнэ.</li>
+                            <li><strong>Нийт багцын хямдрал:</strong> Нийт дүн 15 саяас илүү болсон тохиолдолд үнэлгээний 10 сая тутамд 5%-ийн нэмэлт хямдралыг 20% хүртэлх дүнгээр үзүүлнэ.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 style="color: #bdc2ff; margin-bottom: 1rem; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 0.5rem;">Нэмэлт Маркетинг Үйлчилгээнүүд</h4>
+                        <ul class="quote-list" style="font-size: 0.9rem;">
+                            <li><strong>Сургалт Консалтинг (1-6 сар):</strong> Борлуулалт, ашиг нэмэгдүүлэх, дижитал медиа, интернэт маркетинг, хэрэглэгчийн дата цуглуулах, CRM, SEO, ERP практик сургалтууд.</li>
+                            <li><strong>Визуал багц сошиал:</strong> 1 сарын агуулга бэлдэх, сурталчилгааг Facebook, Google ads-р оновчтой явуулах (ads зардал ороогүй).</li>
+                            <li><strong>Агуулгын маркетинг (90-365 хоног):</strong> Фото, инфографик, видео контент бэлтгэх.</li>
+                            <li><strong>Цахим кампанит ажил (60-365 хоног):</strong> Сошиал сувгуудын хандалтыг өсгөх олон нийтийн кампанит ажил.</li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h4 style="color: #ff90ff; margin-bottom: 1rem; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 0.5rem;">Модуль & Програмчлал</h4>
+                        <ul class="quote-list" style="font-size: 0.9rem;">
+                            <li><strong>Форм хөгжүүлэлт (7-30 хоног):</strong> Тендерийн болон файл онлайнаар хүлээж авах боловсруулах автоматжуулалт.</li>
+                            <li><strong>Хэрэглэгчийн булан (14-30 хоног):</strong> Нэвтрэх, бүртгүүлэх, профайл мэдээллийн сан удирдах.</li>
+                            <li><strong>Үл хөдлөх хөгжүүлэлт:</strong> Давхруудын задаргаа, 3D мэдээлэл (14-30 хоног).</li>
+                            <li><strong>Newsletter (14 хоног):</strong> И-мэйл бүртгэл, и-мэйл маркетинг явуулах хөгжүүлэлт.</li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h4 style="color: #bdc2ff; margin-bottom: 1rem; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 0.5rem;">IT & Консалтинг Задаргаа</h4>
+                        <ul class="quote-list" style="font-size: 0.9rem;">
+                            <li><strong>Project Management:</strong> PR & Social Media tracking, placements in media, securing presence.</li>
+                            <li><strong>User acquisition:</strong> Data reporting, E-mail, Sms, Telemarketing control.</li>
+                            <li><strong>Technology & Training:</strong> ISO standards (9001, 14001, 27001 etc). Boot-camp business sprints.</li>
+                            <li><strong>System Maintenance:</strong> Server installation, Computer and network reliability.</li>
+                            <li><strong>Surveillance system:</strong> Camera and Access control systems.</li>
+                            <li><strong>Solution Audit:</strong> Custom desktop applications, IT system audit.</li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Terms Box -->
+        <section class="fade-in" style="margin-bottom: 8rem;">
+            <div class="glassmorphism" style="padding: 3rem; text-align: center; border-radius: 16px;">
+                <h3 style="font-family: var(--font-head); font-size: 1.8rem; margin-bottom: 1.5rem;">Төлбөрийн Ерөнхий Нөхцөл</h3>
+                <div style="display: flex; justify-content: center; gap: 4rem; margin-bottom: 2rem; color: var(--accent-1); font-weight: 800; font-size: 1.2rem;">
+                    <span>Урьдчилгаа төлбөр: 70%</span>
+                    <span>Үлдэгдэл төлбөр: 30%</span>
+                </div>
+                <p style="color: rgba(255,255,255,0.6); font-size: 0.9rem; max-width: 700px; margin: 0 auto; line-height: 1.6;">
+                    Төлбөрийн нөхцөл нь захиалагч буюу хамтрагчийн хүсэлтээр, цаашдын хамтын ажиллагаанд үндэслэн хямдралтай гаргасан болно. Үнийн дүнд НӨАТ ороогүй. Захиалагч талаас тогтмол хариуцсан хүн хамтран ажиллах шаардлагатай.
+                </p>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Boldbaatar Ganhuyag. Built with innovation. | AgencyPro Quotation</p>
+    </footer>
+
+    <script>
+        // Copy the background effect script
+        document.addEventListener('DOMContentLoaded', () => {
+            const cursor = document.querySelector('.cursor');
+            const follower = document.querySelector('.cursor-follower');
+            let mouseX = 0, mouseY = 0;
+            let followerX = 0, followerY = 0;
+            document.addEventListener('mousemove', (e) => {
+                mouseX = e.clientX;
+                mouseY = e.clientY;
+                cursor.style.transform = `translate(${mouseX}px, ${mouseY}px)`;
+            });
+            function animate() {
+                followerX += (mouseX - followerX) * 0.1;
+                followerY += (mouseY - followerY) * 0.1;
+                follower.style.transform = `translate(${followerX}px, ${followerY}px)`;
+                requestAnimationFrame(animate);
+            }
+            animate();
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if(entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+            document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+        });
+    </script>
+-->
 </body>
 </html>
